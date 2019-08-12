@@ -18,13 +18,9 @@ public class MyStack {
 	}
 	
 	public String pop() throws Exception{
-		  try { //return buffer[top--];
-				  return buffer[top--];
-			  
-		  } catch(Exception e) { 
-			  e = new MyStackException("stack is Empty"); 
-			  return "stack is Empty";
-		  }
+		if(top<0)
+			throw new MyStackException("Stack is Empty");
+		return buffer[top--];
 	}
 	public boolean isEmpty() {
 		if(top<0)
