@@ -10,11 +10,14 @@ public class MyStack {
 	public void push(String data) {
 		if(top>=buffer.length-1) {
 			System.out.println("Size Overflow");
-			buffer = new String[buffer.length*2];
-			buffer[++top]=data;
+			String[] buffer2 = new String[buffer.length*2];
+			for(int i=0;i<buffer.length;++i) {
+				buffer2[i]=buffer[i];
+			}
+			buffer=buffer2;
 		}
-		else
-			buffer[++top]=data;
+		
+		buffer[++top]=data;
 	}
 	
 	public String pop() throws Exception{
@@ -24,9 +27,9 @@ public class MyStack {
 	}
 	public boolean isEmpty() {
 		if(top<0)
-			return false;
-		else
 			return true;
+		else
+			return false;
 			
 	}
 }
